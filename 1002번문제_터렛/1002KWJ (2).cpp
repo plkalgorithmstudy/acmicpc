@@ -7,11 +7,11 @@ int main(void) {
 	int dt;
 
 	int x1, y1, r1, x2, y2, r2;
-	scanf_s("%d", &num);
+	scanf("%d", &num);
 
 	for (int x = 0; x < num; x++) {
-		scanf_s("%d %d %d %d %d %d", &x1, &y1, &r1, &x2, &y2, &r2);
-		
+		scanf("%d %d %d %d %d %d", &x1, &y1, &r1, &x2, &y2, &r2);
+
 		dt = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2); //거리
 
 		//중점이 같은 경우
