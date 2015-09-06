@@ -38,18 +38,15 @@ int main(void){
 			scanf("%d %d", &cityNumber[j][0], &cityNumber[j][1]);
 		
 		sIndex = 0;
-		sNumber = (n-1)*(n)/2;
-		s = (SORT *)malloc(sizeof(SORT)*sNumber);		
-		for(j = 0; j < n; j++){
-			for(k = j + 1; k < n; k++){
-				s[sIndex].x = j;
-				s[sIndex].y = k;
-				s[sIndex].value = sqrt(pow((double)(cityNumber[j][0] - cityNumber[k][0]), 2.0) + pow((double)(cityNumber[j][1] - cityNumber[k][1]), 2.0));
-				sIndex++;
-			}
+		s = (SORT *)malloc(sizeof(SORT)*(n-1));		
+		for(j = 1; j < n; j++){
+			s[sIndex].x = 0;
+			s[sIndex].y = j;
+			s[sIndex].value = sqrt(pow((double)(cityNumber[0][0] - cityNumber[j][0]), 2.0) + pow((double)(cityNumber[0][1] - cityNumber[j][1]), 2.0));
+			sIndex++;						
 		}
 		
-		qsort( s , sNumber , sizeof(SORT) , compareVAL);
+		qsort( s , n-1 , sizeof(SORT) , compareVAL);
 		
 		printf("%d %d %d %d\n", cityNumber[s[0].x][0], cityNumber[s[0].x][1], cityNumber[s[0].y][0], cityNumber[s[0].y][1]);
 		
